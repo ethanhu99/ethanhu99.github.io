@@ -1,56 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="index.css">
-    <title>Ethan Hu Resume</title>
-  </head>
-  <body>
-    <div id="header"></div>
-    <div class="left"></div>
-    <div class="stuff">
-      <br><br>
-      <h1>Resume</h1>
-      <h2>Ethan</h2>
-      <hr />
-      <br>
-      <p class="head">Interests</p>
-      <ul>
-        <li>Drawing</li>
-        <li>Photography</li>
-        <li>Design</li>
-        <li>Programming</li>
-        <li>Computer Science</li>
-      </ul>
-      <p class="head">Skills</p>
-      <ul>
-        <li>Web Design with HTML & CSS</li>
-      </ul>
-      <p class="head">Education</p>
-      <ul>
-        <a href="http://www.wiltonhighschool.org/pages/Wilton_High_School">
-          <li>Wilton High School</li>
-        </a>
-        <!--Link-->
-        <a href="https://www.silvermineart.org/">
-          <li>Silvermine School of Arts</li>
-        </a>
-        <li>Codeacademy</li>
-      </ul>
-      <p class="head">Experience</p>
-      <ul>
-        <li>Student Technology Intern for Wilton School District</li>
-        <li>Babysitter</li>
-      </ul>
-      <p class="head">Extracurriculars</p>
-      <ul>
-        <li>Recycling Club</li>
-        <li>Gardening Club</li>
-        <li>Book Club</li>
-      </ul>
-    </div>
-    <div class="right"></div>
-    <div id="footer">
-      <h2 id="name">Ethan</h2></div>
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Smooth transition for fading in content */
+        .fade-in {
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800 antialiased h-screen flex flex-col md:flex-row overflow-hidden">
+
+    <!-- Sidebar -->
+    <aside class="w-full md:w-72 bg-slate-900 text-white flex flex-col justify-between h-auto md:h-full z-10 shadow-xl flex-shrink-0">
+        <!-- Profile Info -->
+        <div class="p-8 text-center border-b border-slate-700">
+            <div class="w-32 h-32 mx-auto bg-slate-700 rounded-full mb-4 flex items-center justify-center overflow-hidden border-4 border-slate-600">
+                <!-- Placeholder for profile picture -->
+                <i class="fa-solid fa-user text-5xl text-slate-400"></i>
+            </div>
+            <h1 class="text-2xl font-bold tracking-wide">John Doe</h1>
+            <p class="text-slate-400 text-sm mt-1">Senior Web Developer</p>
+        </div>
+
+        <!-- Navigation Categories -->
+        <nav class="flex-1 overflow-y-auto py-6">
+            <ul class="space-y-2 px-4" id="nav-menu">
+                <li>
+                    <button onclick="switchTab('about', this)" class="nav-btn w-full text-left px-4 py-3 rounded-lg transition-colors bg-blue-600 text-white font-medium flex items-center gap-3">
+                        <i class="fa-solid fa-user-tie w-5 text-center"></i> About Me
+                    </button>
+                </li>
+                <li>
+                    <button onclick="switchTab('experience', this)" class="nav-btn w-full text-left px-4 py-3 rounded-lg transition-colors text-slate-300 hover:bg-slate-800 hover:text-white font-medium flex items-center gap-3">
+                        <i class="fa-solid fa-briefcase w-5 text-center"></i> Experience
+                    </button>
+                </li>
+                <li>
+                    <button onclick="switchTab('education', this)" class="nav-btn w-full text-left px-4 py-3 rounded-lg transition-colors text-slate-300 hover:bg-slate-800 hover:text-white font-medium flex items-center gap-3">
+                        <i class="fa-solid fa-graduation-cap w-5 text-center"></i> Education
+                    </button>
+                </li>
+                <li>
+                    <button onclick="switchTab('skills', this)" class="nav-btn w-full text-left px-4 py-3 rounded-lg transition-colors text-slate-300 hover:bg-slate-800 hover:text-white font-medium flex items-center gap-3">
+                        <i class="fa-solid fa-code w-5 text-center"></i> Skills
+                    </button>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Social Links / Buttons -->
+        <div class="p-6 border-t border-slate-700 space-y-3">
+            <a href="#" class="block w-full py-2 px-4 bg-slate-800 hover:bg-blue-600 rounded-lg text-center transition-colors flex items-center justify-center gap-2">
+                <i class="fa-brands fa-linkedin text-xl"></i> LinkedIn
+            </a>
+            <a href="#" class="block w-full py-2 px-4 bg-slate-800 hover:bg-gray-700 rounded-lg text-center transition-colors flex items-center justify-center gap-2">
+                <i class="fa-brands fa-github text-xl"></i> GitHub
+            </a>
+            <a href="mailto:hello@example.com" class="block w-full py-2 px-4 bg-slate-800 hover:bg-red-600 rounded-lg text-center transition-colors flex items-center justify-center gap-2">
+                <i class="fa-solid fa-envelope text-xl"></i> Email Me
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto p-6 md:p-12 relative bg-gray-50">
+        <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm p-8 min-h-full border border-gray-100">
+            
+            <!-- About Section -->
+            <section id="about" class="tab-content fade-in block">
+                <h2 class="text-3xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-6 inline-block">About Me</h2>
+                <div class="prose max-w-none text-gray-600 leading-relaxed space-y-4">
+                    <p>
+                        Hello! I'm a passionate Senior Web Developer with over 8 years of experience in creating scalable, user-friendly, and highly functional web applications. I specialize in front-end technologies like React, Vue, and Tailwind CSS, but I'm also well-versed in back-end development with Node.js and Python.
+                    </p>
+                    <p>
+                        My philosophy is simple: write clean, maintainable code and always put the user's experience first. I love solving complex problems, mentoring junior developers, and keeping up with the latest trends in the ever-evolving tech landscape.
+                    </p>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 bg-gray-50 p-6 rounded-lg border border-gray-100">
+                        <div>
+                            <p class="font-semibold text-gray-800"><i class="fa-solid fa-location-dot mr-2 text-blue-500"></i> Location</p>
+                            <p class="text-gray-600 ml-6">San Francisco, CA (Open to Remote)</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-800"><i class="fa-solid fa-phone mr-2 text-blue-500"></i> Phone</p>
+                            <p class="text-gray-600 ml-6">+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="tab-content hidden">
+                <h2 class="text-3xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-8 inline-block">Professional Experience</h2>
+                
+                <div class="space-y-8">
+                    <!-- Job 1 -->
+                    <div class="relative pl-6 border-l-2 border-blue-200">
+                        <div class="absolute w-4 h-4 bg-blue-500 rounded-full -left-[9px] top-1 border-4 border-white shadow"></div>
+                        <h3 class="text-xl font-bold text-gray-800">Senior Frontend Engineer</h3>
+                        <div class="text-blue-600 font-medium mb-1">Tech Solutions Inc.</div>
+                        <div class="text-sm text-gray-500 mb-4 flex items-center gap-2"><i class="fa-regular fa-calendar"></i> Jan 2021 - Present</div>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li>Led the migration of a legacy monolithic application to a modern React-based SPA.</li>
+                            <li>Improved page load times by 40% through code splitting and asset optimization.</li>
+                            <li>Mentored a team of 5 junior developers and implemented standardized code review practices.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Job 2 -->
+                    <div class="relative pl-6 border-l-2 border-blue-200">
+                        <div class="absolute w-4 h-4 bg-gray-300 rounded-full -left-[9px] top-1 border-4 border-white shadow"></div>
+                        <h3 class="text-xl font-bold text-gray-800">Web Developer</h3>
+                        <div class="text-blue-600 font-medium mb-1">Creative Agency LLC</div>
+                        <div class="text-sm text-gray-500 mb-4 flex items-center gap-2"><i class="fa-regular fa-calendar"></i> Mar 2017 - Dec 2020</div>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li>Developed and maintained responsive e-commerce websites using JavaScript, HTML, and CSS.</li>
+                            <li>Integrated third-party APIs including Stripe for payments and Mailchimp for marketing.</li>
+                            <li>Collaborated directly with UI/UX designers to bring wireframes to life with pixel-perfect accuracy.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education" class="tab-content hidden">
+                <h2 class="text-3xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-8 inline-block">Education</h2>
+                
+                <div class="space-y-6">
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-md transition-shadow">
+                        <div class="flex flex-col md:flex-row justify-between md:items-center mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Master of Science in Computer Science</h3>
+                            <span class="text-blue-600 font-medium bg-blue-50 px-3 py-1 rounded-full text-sm">2015 - 2017</span>
+                        </div>
+                        <div class="text-gray-700 font-medium mb-2">Stanford University</div>
+                        <p class="text-gray-600 text-sm">Specialized in Human-Computer Interaction and Web Technologies. Graduated with honors.</p>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-md transition-shadow">
+                        <div class="flex flex-col md:flex-row justify-between md:items-center mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Bachelor of Science in Information Technology</h3>
+                            <span class="text-gray-600 font-medium bg-gray-200 px-3 py-1 rounded-full text-sm">2011 - 2015</span>
+                        </div>
+                        <div class="text-gray-700 font-medium mb-2">University of California, Berkeley</div>
+                        <p class="text-gray-600 text-sm">Minor in Graphic Design. President of the Web Development Club.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="tab-content hidden">
+                <h2 class="text-3xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-8 inline-block">Technical Skills</h2>
+                
+                <div class="space-y-8">
+                    <!-- Frontend -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-desktop text-blue-500"></i> Frontend</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-4 py-2 bg-blue-50 text-blue-700 rounded-lg border border-blue-100 font-medium">React.js</span>
+                            <span class="px-4 py-2 bg-blue-50 text-blue-700 rounded-lg border border-blue-100 font-medium">Vue.js</span>
+                            <span class="px-4 py-2 bg-blue-50 text-blue-700 rounded-lg border border-blue-100 font-medium">JavaScript (ES6+)</span>
+                            <span class="px-4 py-2 bg-blue-50 text-blue-700 rounded-lg border border-blue-100 font-medium">TypeScript</span>
+                            <span class="px-4 py-2 bg-blue-50 text-blue-700 rounded-lg border border-blue-100 font-medium">HTML5 & CSS3</span>
+                            <span class="px-4 py-2 bg-blue-50 text-blue-700 rounded-lg border border-blue-100 font-medium">Tailwind CSS</span>
+                        </div>
+                    </div>
+
+                    <!-- Backend -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-server text-green-500"></i> Backend & Database</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-4 py-2 bg-green-50 text-green-700 rounded-lg border border-green-100 font-medium">Node.js</span>
+                            <span class="px-4 py-2 bg-green-50 text-green-700 rounded-lg border border-green-100 font-medium">Express</span>
+                            <span class="px-4 py-2 bg-green-50 text-green-700 rounded-lg border border-green-100 font-medium">Python</span>
+                            <span class="px-4 py-2 bg-green-50 text-green-700 rounded-lg border border-green-100 font-medium">PostgreSQL</span>
+                            <span class="px-4 py-2 bg-green-50 text-green-700 rounded-lg border border-green-100 font-medium">MongoDB</span>
+                        </div>
+                    </div>
+
+                    <!-- Tools -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2"><i class="fa-solid fa-wrench text-orange-500"></i> Tools & Others</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-4 py-2 bg-orange-50 text-orange-700 rounded-lg border border-orange-100 font-medium">Git & GitHub</span>
+                            <span class="px-4 py-2 bg-orange-50 text-orange-700 rounded-lg border border-orange-100 font-medium">Docker</span>
+                            <span class="px-4 py-2 bg-orange-50 text-orange-700 rounded-lg border border-orange-100 font-medium">AWS</span>
+                            <span class="px-4 py-2 bg-orange-50 text-orange-700 rounded-lg border border-orange-100 font-medium">Figma</span>
+                            <span class="px-4 py-2 bg-orange-50 text-orange-700 rounded-lg border border-orange-100 font-medium">Jest</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        function switchTab(tabId, btnElement) {
+            // 1. Hide all tab contents
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => {
+                tab.classList.remove('block', 'fade-in');
+                tab.classList.add('hidden');
+            });
+
+            // 2. Remove active styling from all buttons
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('text-slate-300', 'hover:bg-slate-800', 'hover:text-white');
+            });
+
+            // 3. Show the selected tab content
+            const selectedTab = document.getElementById(tabId);
+            selectedTab.classList.remove('hidden');
+            // Force reflow to restart animation
+            void selectedTab.offsetWidth; 
+            selectedTab.classList.add('block', 'fade-in');
+
+            // 4. Add active styling to the clicked button
+            btnElement.classList.remove('text-slate-300', 'hover:bg-slate-800', 'hover:text-white');
+            btnElement.classList.add('bg-blue-600', 'text-white');
+            
+            // On mobile, scroll to top of main content when switching tabs
+            if (window.innerWidth < 768) {
+                document.querySelector('main').scrollTop = 0;
+            }
+        }
+    </script>
+</body>
 </html>
