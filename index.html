@@ -24,7 +24,13 @@
         <!-- Profile Info -->
         <div class="p-8 text-center border-b border-slate-700">
             <div class="w-32 h-32 mx-auto bg-slate-700 rounded-full mb-4 flex items-center justify-center overflow-hidden border-4 border-slate-600">
-                <!-- Placeholder for profile picture -->
+                <img 
+                    src="profile.jpg" 
+                    alt="Ethan Hu" 
+                    class="w-full h-full object-cover"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                >
+                <!-- Fallback icon if image fails to load -->
                 <i class="fa-solid fa-user text-5xl text-slate-400"></i>
             </div>
             <h1 class="text-2xl font-bold tracking-wide">Ethan Hu</h1>
@@ -42,6 +48,11 @@
                 <li>
                     <button onclick="switchTab('experience', this)" class="nav-btn w-full text-left px-4 py-3 rounded-lg transition-colors text-slate-300 hover:bg-slate-800 hover:text-white font-medium flex items-center gap-3">
                         <i class="fa-solid fa-briefcase w-5 text-center"></i> Experience
+                    </button>
+                </li>
+                <li>
+                    <button onclick="switchTab('projects', this)" class="nav-btn w-full text-left px-4 py-3 rounded-lg transition-colors text-slate-300 hover:bg-slate-800 hover:text-white font-medium flex items-center gap-3">
+                        <i class="fa-solid fa-layer-group w-5 text-center"></i> Projects
                     </button>
                 </li>
                 <li>
@@ -143,6 +154,39 @@
                 </div>
             </section>
 
+            <!-- Projects Section -->
+            <section id="projects" class="tab-content hidden">
+                <h2 class="text-3xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-8 inline-block">Key Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow">
+                        <div class="h-32 bg-slate-100 flex items-center justify-center border-b border-gray-100">
+                            <i class="fa-solid fa-cart-shopping text-4xl text-slate-300"></i>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-gray-800 mb-2">E-Commerce Dashboard</h3>
+                            <p class="text-sm text-gray-600 mb-4">A real-time analytics dashboard for online retailers built with React and D3.js.</p>
+                            <div class="flex gap-2">
+                                <span class="text-[10px] bg-gray-100 px-2 py-1 rounded">React</span>
+                                <span class="text-[10px] bg-gray-100 px-2 py-1 rounded">Tailwind</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow">
+                        <div class="h-32 bg-slate-100 flex items-center justify-center border-b border-gray-100">
+                            <i class="fa-solid fa-comments text-4xl text-slate-300"></i>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-gray-800 mb-2">Social Connect App</h3>
+                            <p class="text-sm text-gray-600 mb-4">A messaging platform focused on privacy, utilizing end-to-end encryption via Socket.io.</p>
+                            <div class="flex gap-2">
+                                <span class="text-[10px] bg-gray-100 px-2 py-1 rounded">Node.js</span>
+                                <span class="text-[10px] bg-gray-100 px-2 py-1 rounded">Socket.io</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
             <!-- Education Section -->
             <section id="education" class="tab-content hidden">
                 <h2 class="text-3xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 mb-8 inline-block">Education</h2>
